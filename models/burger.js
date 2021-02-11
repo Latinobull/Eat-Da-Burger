@@ -1,4 +1,3 @@
-const { insertOne } = require("../config/orm.js");
 const orm = require("../config/orm.js");
 
 const burger = {
@@ -12,3 +11,5 @@ const burger = {
     orm.updateOne("burgers", objColVals, condition, (res) => cb(res));
   },
 };
+
+module.exports = burger;

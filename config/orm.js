@@ -4,7 +4,8 @@ const orm = {
   selectAll(tableInput, cb) {
     const queryString = `SELECT * FROM ${tableInput}`;
     connection.query(queryString, (err, res) => {
-      console.log("I work");
+      if (err) throw err;
+      cb(res);
     });
   },
 
