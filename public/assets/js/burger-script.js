@@ -26,5 +26,34 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
   }
 
-  const changeDevouredBtn = document.querySelectorAll();
+  const changeDevouredBtn = document.querySelectorAll(".change-devoured");
+  if (changeDevouredBtn) {
+    changeDevouredBtn.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const id = e.target.getAttribute("data-id");
+        const newDevoured = e.target.getAttribute("data-devoured");
+
+        const newDevouredState = {
+          devoured: newDevoured,
+        };
+
+        fetch(`/api/burgers/${id}`, {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(newDevouredState),
+        }).then((res) => {
+          if (res.ok) {
+            console.log(`changed state to: ${newDevoured}`);
+            location.reload("/");
+          } else {
+            alert("something went wrong!");
+          }
+        });
+      });
+    });
+  }
 });
