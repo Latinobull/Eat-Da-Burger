@@ -23,19 +23,19 @@
 </div>
 
 <h3>For Devouring</h3>
-<ol>
+<ul>
     {{#each burgers}}
     {{#unless devoured}}
-
+    {{> burgers/burger-block devoured=false}}
     {{/unless}}
     {{/each}}
-</ol>
+</ul>
 
 <h2>Already Devoured</h2>
-<ol>
+<ul>
     {{#each burgers}}
     {{#if devoured}}
-
+    {{> burgers/burger-block devoured=true}}
     {{/if}}
     {{/each}}
-</ol>
+</ul>

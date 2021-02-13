@@ -25,4 +25,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
       });
     });
   }
+
+  const changeDevouredBtn = document.querySelectorAll();
 });
