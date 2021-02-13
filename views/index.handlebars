@@ -3,7 +3,7 @@
 <div class="form-container">
     <h2 id="add-title">Add a Burger</h2>
     <hr class="add-line">
-    <form class="create-form">
+    <form id="create-form">
 
         <div class="form-group">
             <input type="text" id="ca" name="burger_name" placeholder="Enter a burger name">
@@ -13,8 +13,8 @@
         <div class="form-group checkboxes">
 
             <div>
-                <input type="radio" name="devoured" value="0" checked> Waiting to Be Devoured
-                <input type="radio" name="devoured" value="1"> Has Been Devoured
+                <input type="radio" name="devoured" id="notDev" value="0" checked> Waiting to Be Devoured
+                <input type="radio" name="devoured" id="Dev" value="1"> Has Been Devoured
             </div>
         </div>
         <br>
