@@ -21,3 +21,21 @@
         <button type="submit">Add Burger</button>
     </form>
 </div>
+
+<h3>For Devouring</h3>
+<ol>
+    {{#each burgers}}
+    {{#unless devoured}}
+
+    {{/unless}}
+    {{/each}}
+</ol>
+
+<h2>Already Devoured</h2>
+<ol>
+    {{#each burgers}}
+    {{#if devoured}}
+
+    {{/if}}
+    {{/each}}
+</ol>
