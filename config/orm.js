@@ -29,7 +29,8 @@ const orm = {
     queryString += ") ";
     connection.query(queryString, vals, (err, res) => {
       if (err) throw err;
-      cb(result);
+      cb(res);
+      console.log("Burger has created!");
     });
   },
 
