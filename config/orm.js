@@ -1,5 +1,15 @@
 const connection = require("./connection.js");
 
+const printQuestionMarks = (num) => {
+  const arr = [];
+
+  for (let i = 0; i < num; i++) {
+    arr.push("?");
+  }
+
+  return arr.toString();
+};
+
 const orm = {
   selectAll(tableInput, cb) {
     const queryString = `SELECT * FROM ${tableInput}`;
@@ -10,14 +20,22 @@ const orm = {
   },
 
   insertOne(table, cols, vals, cb) {
-    const queryString = `INSERT INTO ${table}`;
-    connection.query(queryString, (err, res) => {
-      console.log("I work");
+    let queryString = `INSERT INTO ${table}`;
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+    connection.query(queryString, vals, (err, res) => {
+      if (err) throw err;
+      cb(result);
     });
   },
 
   updateOne(table, objColVals, condition, cb) {
     const queryString = `UPDATE ${table}`;
+
     connection.query(queryString, (err, res) => {
       console.log("I work");
     });
