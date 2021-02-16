@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
           },
 
           body: JSON.stringify(newDevouredState),
-        }).then((res) => {
-          if (res.ok) {
+        }).then((response) => {
+          if (response.ok) {
             console.log(`changed state to: ${newDevoured}`);
             location.reload("/");
           } else {
